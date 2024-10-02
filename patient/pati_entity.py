@@ -1,6 +1,6 @@
 from datetime import datetime
 class Patient():
-    reservation_date=0
+    reservation_date={}
     def __init__(self, pati_name, birth_num, pati_phone):
         self.name=pati_name
         self.birth_num = birth_num
@@ -14,9 +14,12 @@ class Patient():
         self.doct=doct
 
     def assign_reservation_num(self):
-        today=datetime.today().strftime('%y%m%d')
-        Patient.reservation_date+=1
-        self.reservation_num=f'{today}0{Patient.reservation_date}'
+        today = datetime.today().strftime('%y%m%d')
+        if today in Patient.reservation_date:
+            Patient.reservation_date[today]+=1
+        else:
+            Patient.reservation_date[today]=1
+        self.reservation_num = f'{today}0{Patient.reservation_date[today]}'
 
     def pati_info(self):
         return {
