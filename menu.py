@@ -1,15 +1,13 @@
-from patient.pati_menu import PatiMenu
-
 class Menu:
 
     def __init__(self):
-        self.pati_menu=PatiMenu()
+        pass
 
     def main_menu(self):
         menu_str = """
-        ------ 접수/수납 ------
-        1. 접수하기 🩺
-        2. 수납하기 💸
+        ------ 접수/수납 키오스크 ------
+        1. 접수
+        2. 수납
         ------------------------
         입력 : """
 
@@ -18,7 +16,7 @@ class Menu:
 
                 match choice:
                     case '1':
-                        self.pati_menu.register_patient_info()
+                        pass
                     case '2':
                         pass
                     case _:
