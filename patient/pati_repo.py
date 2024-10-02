@@ -16,3 +16,9 @@ class PatiRepo:
 
     def get_all_patient_info(self):
         return self.patients_info
+
+"""희애"""
+"""""""""
+
+""""혜영""""
+"""""""""""
