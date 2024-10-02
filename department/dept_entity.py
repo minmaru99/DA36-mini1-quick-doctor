@@ -1,15 +1,16 @@
 class Dept():
 
-    def __init__(self, dept_name, doct_name):
+    def __init__(self, dept_name, doct_names, price):
 
-        self.__dept_name = dept_name
-        self.__doct_name = doct_name
+        self.dept_name = dept_name
+        self.doct_names = doct_names
+        self.price = price
 
-    def __str__(self):
-        return f'str: {self.__dept_name} - {self.__doct_name}'
-
-    def get_dept_name(self):
-        return self.__dept_name
+    # def dept_name(self):
+    #     return self.dept_name
+    #
+    # def doct_names(self):
+    #     return self.doct_names
 
     def get_doct_name(self):
         return self.__doct_name
@@ -21,4 +22,4 @@ class Dept():
         self.__doct_name = doct_name
 
     def __repr__(self):
-        return f'Dept{{dept_name = {self.__dept_name}, doct_name = {self.__doct_name}}}'
+        return f'Dept{{dept_name = {self.dept_name}, doct_names = {self.doct_names}, price = {self.price}}}'

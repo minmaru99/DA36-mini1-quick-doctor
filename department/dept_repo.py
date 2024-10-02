@@ -2,30 +2,15 @@ import pickle
 from department.dept_entity import Dept
 
 class DeptRepo():
-    def __init__(self):
-        pass
-
-    def load_dept_doct_list(self):
-        dept_doct_dict = {}
-        file_path="C:/Workspaces/DA36-mini1-quick-doctor/department/dept_doct_list.txt"
-        with open(file_path, 'r', encoding='utf8') as f:
-            for line in f :
-                key, value = line.strip().split('=')
-                dept_doct_dict[key] = value
-        return dept_doct_dict
-
-    def save_rev(self):
-        reservation = []
+    department_dict = {
+        "내과": Dept('내과', ['김내과', '최내과'], '5000'),
+        "이비인후과": Dept('이비인후과', ['김이빈', '박비인'], '10000'),
+        "소아과": Dept('소아과',['박소아','이소아'], '20000')
+    }
 
 
 
-# 클래스 인스턴스 생성
-repo = DeptRepo()
 
-file_path = 'dept_doct_list.txt'
-dept_doct_dict = repo.load_dept_doct_list()
-
-dd_dept = list(dept_doct_dict.keys())
 
 
 
