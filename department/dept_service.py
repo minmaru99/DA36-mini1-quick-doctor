@@ -8,6 +8,9 @@ class DeptService():
     def load_dept_doct_list(self):
         return self.dept_repo.load_dept_doct_list()
 
+    def save_rev(self):
+        return self.dept_repo.save_rev()
+
 
 
 

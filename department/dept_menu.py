@@ -1,7 +1,5 @@
-from conda.deprecations import deprecated
 
 from department.dept_entity import Dept
-from department.dept_repo import DeptRepo, dept_doct_dict
 from department.dept_service import DeptService
 
 
@@ -19,13 +17,11 @@ class DeptMenu():
 입력 : """
 
         while True:
-            dept_choice = input(menu_str)
+            dept_name = input(menu_str)
 
-            match dept_choice:
+            match dept_name:
                 case '1':
                     self.inter_doct_menu()
-                    if dept_choice == '1' :
-                        print(dept_doct_dict)
                 case '2':
                     self.oto_doct_menu()
                 case '3':
@@ -44,7 +40,8 @@ class DeptMenu():
         choice = input(menu_str)
         match choice:
             case '1':
-                pass
+                if choice == '1':
+                    self.dept_service.save_rev()
             case '2':
                 pass
             case _:
@@ -80,9 +77,12 @@ class DeptMenu():
             case '2':
                 pass
 
+    def save_appointment(self):
+        appointment = Dept(self,dept_name, doct_name)
 
-
-
+if __name__ == '__main__':
+    dept_menu = DeptMenu()
+    dept_menu.dept_menu()
 
 
 

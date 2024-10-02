@@ -5,6 +5,9 @@ class Dept():
         self.__dept_name = dept_name
         self.__doct_name = doct_name
 
+    def __str__(self):
+        return f'str: {self.__dept_name} - {self.__doct_name}'
+
     def get_dept_name(self):
         return self.__dept_name
 
