@@ -9,7 +9,7 @@ class Patient():
         self.doct=None
         self.reservation_num=None
 
-    def select_dept_doct(self,dept, doct):
+    def select_dept_doct(self,dept,doct):
         self.dept=dept
         self.doct=doct
 
@@ -30,3 +30,4 @@ class Patient():
             'doct':self.doct,
             'reservation_num':self.reservation_num
         }
+

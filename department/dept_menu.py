@@ -1,56 +1,88 @@
-from dept_service import DeptService
+from conda.deprecations import deprecated
+
+from department.dept_entity import Dept
+from department.dept_repo import DeptRepo, dept_doct_dict
+from department.dept_service import DeptService
+
 
 class DeptMenu():
-    """
-    아는거: service
-    하는거: 메뉴 제공(메인, 서비메뉴), 입력폼 제공, 결과출력
-    """
     def __init__(self):
-        self.dept_service = DeptService()
+        self.dept_service =DeptService()
 
     def dept_menu(self):
-        print('진료 과목을 선택해주세요')
-        dept_menu_str = """
-        ------ 진료과목 ------
-        1. 내과(IM)
-        2. 이빈후과(ENT)
-        3. 소아과(PD)
-        0. 메인메뉴로 돌아가기
-        ------------------------
-        입력 : """
+        menu_str = """
+------ 진료과목 선택 ------
+1. 내과
+2. 이비인후과
+3. 소아과
+------------------------
+입력 : """
 
         while True:
-            dept_choice = input(dept_menu_str)
+            dept_choice = input(menu_str)
 
             match dept_choice:
                 case '1':
-                    im_doc_str = """
-                    =======내과 담당의=======
-                    1. 김내과
-                    2. 이내과
-                    =======================
-                    """
-                    doc_choice=input('내과 담당의를 선택하세요: ')
-                    if  doc_choice == '1':
-                        # self.dept_service.save_reservation()
-                        pass
-                        print(dept_choice,doc_choice)
-
-                    elif doc_choice == 2:
-                        self.dept_service.save_reservation()
-
-                    else:
-                        print('다시 입력하세요')
-
+                    self.inter_doct_menu()
+                    if dept_choice == '1' :
+                        print(dept_doct_dict)
                 case '2':
-                    ent_doc_str = """
-                    ======이빈후과 담당의====
-                    1. 정이비
-                    2. 최후과
-                    ======================
-                    """
-                    input('이빈후과 담당의를 선택하세요: ')
+                    self.oto_doct_menu()
+                case '3':
+                    self.ped_doct_menu()
+                case _:
+                    print('다시 선택해주세요.')
 
-if __name__ == '__main__':
-    d=DeptMenu()
-    d.dept_menu()
+
+    def inter_doct_menu(self):
+        menu_str = """
+    ====== 내과 담당의 =====
+    1. 김내과
+    2. 최내과
+    =======================
+    입력 : """
+        choice = input(menu_str)
+        match choice:
+            case '1':
+                pass
+            case '2':
+                pass
+            case _:
+                print('다시 선택해주세요.')
+
+    def oto_doct_menu(self):
+        menu_str = """
+        ====== 내과 담당의 =====
+        1. 김이비
+        2. 박비인
+        =======================
+        입력 : """
+
+        choice = input(menu_str)
+        match choice:
+            case '1':
+                pass
+            case '2':
+                pass
+
+    def ped_doct_menu(self):
+        menu_str = """
+        ====== 내과 담당의 =====
+        1. 박소아
+        2. 이소아
+        =======================
+        입력 : """
+
+        choice = input(menu_str)
+        match choice:
+            case '1':
+                pass
+            case '2':
+                pass
+
+
+
+
+
+
+

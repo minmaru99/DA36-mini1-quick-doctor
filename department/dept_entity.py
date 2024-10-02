@@ -1,14 +1,21 @@
+class Dept():
 
-class DeptEntity():
+    def __init__(self, dept_name, doct_name):
 
-    class Doctor:
-        def __init__(self, doctor_name, dept):
-            self.doctor_name = doctor_name
-            self.dept = dept
+        self.__dept_name = dept_name
+        self.__doct_name = doct_name
 
-    class Reservation:
-        def __init__(self, dept, doctor_name, reservation_date):
-            self.dept = dept
-            self.doctor_name = doctor_name
-            self.reservation_date = reservation_date
+    def get_dept_name(self):
+        return self.__dept_name
 
+    def get_doct_name(self):
+        return self.__doct_name
+
+    def set_dept_name(self, dept_name):
+        self.__dept_name = dept_name
+
+    def set_doct_name(self, doct_name):
+        self.__doct_name = doct_name
+
+    def __repr__(self):
+        return f'Dept{{dept_name = {self.__dept_name}, doct_name = {self.__doct_name}}}'

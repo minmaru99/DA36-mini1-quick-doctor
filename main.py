@@ -1,10 +1,10 @@
-from menu import Menu
+from menu import *
 from department.dept_menu import DeptMenu
 from patient.pati_menu import *
 
 if __name__ == '__main__':
     menu = Menu()
-    Menu().main_menu()
-
+    dept_menu = DeptMenu()
+    pati_menu = PatiMenu()
 
 
