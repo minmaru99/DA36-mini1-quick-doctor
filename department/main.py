@@ -1,7 +1,7 @@
 from department.dept_menu import DeptMenu
 if __name__ == '__main__':
     dept_menu = DeptMenu()
-    dept_menu.dept_menu()
+    dept_menu.print_menu1()
     print('이용해주셔서 감사합니다.')
 
 
