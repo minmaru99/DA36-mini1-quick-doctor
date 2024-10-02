@@ -1,84 +1,90 @@
 from conda.deprecations import deprecated
 
 from department.dept_entity import Dept
-from department.dept_repo import DeptRepo, dept_doct_dict
+from department.dept_repo import DeptRepo
 from department.dept_service import DeptService
 
 
-class DeptMenu():
+class DeptMenu:
     def __init__(self):
-        self.dept_service =DeptService()
+        self.dept_service = DeptService()
+        self.selected_dept_name = None
+        self.selected_dept_doct_name = None
+        self.selected_price = None
 
-    def dept_menu(self):
-        menu_str = """
------- 진료과목 선택 ------
-1. 내과
-2. 이비인후과
-3. 소아과
-------------------------
-입력 : """
+    def print_menu1(self):
+        print("------ 진료과목 선택 ------")
+        for i, key in enumerate(DeptRepo.department_dict.keys()):
+            print(f'{i + 1}. {key}')
+        print(f'{0}. 뒤로가기')
+        print("------------------------")
+        print("입력 : ")
 
         while True:
-            dept_choice = input(menu_str)
-
-            match dept_choice:
+            # self.print_menu1()
+            choice = input()
+            match choice:
                 case '1':
-                    self.inter_doct_menu()
-                    if dept_choice == '1' :
-                        print(dept_doct_dict)
+                    self.selected_dept_name = '내과'
+                    self.selected_price = '5000'
+                    self.in_doct()
                 case '2':
-                    self.oto_doct_menu()
+                    self.selected_dept_name = '이비인후과'
+                    self.selected_price = '10000'
+                    self.ot_doct()
                 case '3':
-                    self.ped_doct_menu()
+                    self.selected_dept_name = '소아과'
+                    self.selected_price = '20000'
+                    self.pd_doct()
+                case '0':
+                    return
                 case _:
                     print('다시 선택해주세요.')
 
+            print(self.selected_dept_name)
+            print(self.selected_dept_doct_name)
+            print(int(self.selected_price))
 
-    def inter_doct_menu(self):
-        menu_str = """
-    ====== 내과 담당의 =====
-    1. 김내과
-    2. 최내과
-    =======================
-    입력 : """
-        choice = input(menu_str)
+
+    def print_sub_menu(self, key):
+        print(f"------ {key} 담당의 선택 ------")
+        dept = DeptRepo.department_dict[key]
+        for i, doc_name in enumerate(dept.doct_names):
+            print(f'{i + 1}. {doc_name}')
+        print(f'{0}. 뒤로가기')
+        print("------------------------")
+        print("입력 : ")
+
+    def in_doct(self):
+        self.print_sub_menu('내과')
+        choice = input()
         match choice:
             case '1':
-                pass
+                # print(choice)
+                self.selected_dept_doct_name = DeptRepo.department_dict['내과'].doct_names[0]
             case '2':
-                pass
+                self.selected_dept_doct_name = DeptRepo.department_dict['내과'].doct_names[1]
             case _:
                 print('다시 선택해주세요.')
 
-    def oto_doct_menu(self):
-        menu_str = """
-        ====== 내과 담당의 =====
-        1. 김이비
-        2. 박비인
-        =======================
-        입력 : """
-
-        choice = input(menu_str)
+    def ot_doct(self):
+        self.print_sub_menu('이비인후과')
+        choice = input()
         match choice:
             case '1':
-                pass
+                self.selected_dept_doct_name = DeptRepo.department_dict['이비인후과'].doct_names[0]
             case '2':
-                pass
+                self.selected_dept_doct_name = DeptRepo.department_dict['이비인후과'].doct_names[1]
 
-    def ped_doct_menu(self):
-        menu_str = """
-        ====== 내과 담당의 =====
-        1. 박소아
-        2. 이소아
-        =======================
-        입력 : """
-
-        choice = input(menu_str)
+    def pd_doct(self):
+        self.print_sub_menu('소아과')
+        choice = input()
         match choice:
             case '1':
-                pass
+                self.selected_dept_doct_name = DeptRepo.department_dict['소아과'].doct_names[0]
             case '2':
-                pass
+                self.selected_dept_doct_name = DeptRepo.department_dict['소아과'].doct_names[1]
+
 
 
 

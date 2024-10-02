@@ -5,8 +5,7 @@ class DeptService():
         self.dept_repo = DeptRepo()
 
 
-    def load_dept_doct_list(self):
-        return self.dept_repo.load_dept_doct_list()
+
 
 
 

@@ -1,7 +1,8 @@
 class Menu:
 
     def __init__(self):
-        pass
+        self.dept_menu = DeptMenu()
+        self.pati_menu = PatiMenu()
 
     def main_menu(self):
         menu_str = """
@@ -16,7 +17,10 @@ class Menu:
 
                 match choice:
                     case '1':
-                        pass
+                        pati_name, pati_ssn = self.pati_menu.register_patient_info()
+                        dept_name, dept_doct_name = self.dept_menu.dept_menu()
+                        print('진료를 시작합니다......')
+                        print('수납해주세요....')
                     case '2':
                         pass
                     case _:
