@@ -7,4 +7,9 @@ if __name__ == '__main__':
     dept_menu = DeptMenu()
     pati_menu = PatiMenu()
 
+"""희애"""
+"""""""""
+
+""""혜영""""
+"""""""""""
 

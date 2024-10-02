@@ -1,7 +1,7 @@
 from patient.pati_entity import Patient
 from patient.pati_repo import PatiRepo
-# from department.dept_entity import DeptEntity
-# from department.dept_menu import DeptMenu
+from department.dept_entity import DeptEntity
+from department.dept_menu import DeptMenu
 
 class PatiMenu():
     def __init__(self):
@@ -24,3 +24,8 @@ class PatiMenu():
         # patient.select_dept_doct(dept,doct)
         patient.assign_reservation_num()
         self.pati_repo.update_patient_info(patient)
+"""희애"""
+"""""""""
+
+""""혜영""""
+"""""""""""

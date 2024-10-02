@@ -31,3 +31,8 @@ class Patient():
             'reservation_num':self.reservation_num
         }
 
+"""희애"""
+"""""""""
+
+""""혜영""""
+"""""""""""
