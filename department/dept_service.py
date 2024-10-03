@@ -7,6 +7,9 @@ class DeptService():
 
 
 
+    def save_rev(self):
+        return self.dept_repo.save_rev()
+
 
 
 
