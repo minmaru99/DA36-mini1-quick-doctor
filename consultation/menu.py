@@ -58,12 +58,15 @@ class Menu:
                 doc = docs[dept][doc_choice]
 
                 # 예약번호 생성 및 환자 등록
-                PatiService.add_new_patient(name, age, phone_number, social_number, dept, doc)
+                PatiService.create_reservation_num(reservation_number)
 
             elif choice == '3':
+                fee =(5000, 10000, 20000)
+
                 reservation_number  = input("예약번호를 입력하세요: ")
                 patient = PatiRepo.get_patient_by_reservation(reservation_number)
-                if patient:
+                if patient == reservation_number:
+                    print(fee[dept_choice])
                     PatiService.payment_process(patient) # TODO 수납 추가+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                 else:
                     print(f'예약번호 {reservation_number}로 등록된 정보를 찾을 수 없습니다')

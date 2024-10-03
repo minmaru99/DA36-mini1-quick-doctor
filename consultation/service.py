@@ -10,18 +10,18 @@ class PatiService:
         self.repository = repository
 
     def create_reservation_num(self):
-        today = datetime.datetime.now().strftime("%y%m%d")
+        today = datetime.now().strftime("%y%m%d")
         if today in PatiService.reservation_date:
             PatiService.reservation_date[today] += 1
         else:
             PatiService.reservation_date[today] = 1
-        self.reservation_number = f'{today}0{PatiService.reservation_date[today]}'
-        return self.reservation_number
+        reservation_number = f'{today}0{PatiService.reservation_date[today]}'
+        return reservation_number
 
-    def add_new_patient(self,name, age, phone_number, social_number, dept, doc):
+    def add_new_patient(self, name, age, phone_number, social_number, dept, doc):
         reservation_number = self.create_reservation_num()
         new_patient = Patient(reservation_number, name, age, phone_number, social_number, dept, doc)
-        self.repository.add_new_patient(new_patient)
+        self.repository.add_patient(new_patient)
         print(f'예약이 완료되었습니다! 예약번호: {reservation_number}')
         return reservation_number
 
