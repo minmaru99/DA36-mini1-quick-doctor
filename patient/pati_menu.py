@@ -1,6 +1,6 @@
 from patient.pati_entity import Patient
 from patient.pati_repo import PatiRepo
-from department.dept_entity import DeptEntity
+from department.dept_entity import Dept
 from department.dept_menu import DeptMenu
 
 class PatiMenu():

@@ -17,6 +17,10 @@ class PatiRepo:
     def get_all_patient_info(self):
         return self.patients_info
 
+    def create_pati(self):
+        self.patients_info.append(pati_re)
+
+
 """희애"""
 """""""""
 

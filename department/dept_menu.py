@@ -41,10 +41,7 @@ class DeptMenu:
                 case _:
                     print('다시 선택해주세요.')
 
-            print(self.selected_dept_name)
-            print(self.selected_dept_doct_name)
-            print(int(self.selected_price))
-
+            print(self.selected_dept_name, self.selected_dept_doct_name, int(self.selected_price))
 
     def print_sub_menu(self, key):
         print(f"------ {key} 담당의 선택 ------")
@@ -64,8 +61,10 @@ class DeptMenu:
                 self.selected_dept_doct_name = DeptRepo.department_dict['내과'].doct_names[0]
             case '2':
                 self.selected_dept_doct_name = DeptRepo.department_dict['내과'].doct_names[1]
+
             case _:
                 print('다시 선택해주세요.')
+
 
     def ot_doct(self):
         self.print_sub_menu('이비인후과')
@@ -73,8 +72,10 @@ class DeptMenu:
         match choice:
             case '1':
                 self.selected_dept_doct_name = DeptRepo.department_dict['이비인후과'].doct_names[0]
+
             case '2':
                 self.selected_dept_doct_name = DeptRepo.department_dict['이비인후과'].doct_names[1]
+
 
     def pd_doct(self):
         self.print_sub_menu('소아과')
@@ -82,8 +83,11 @@ class DeptMenu:
         match choice:
             case '1':
                 self.selected_dept_doct_name = DeptRepo.department_dict['소아과'].doct_names[0]
+
             case '2':
                 self.selected_dept_doct_name = DeptRepo.department_dict['소아과'].doct_names[1]
+
+
 
 
 
