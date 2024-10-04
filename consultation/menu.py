@@ -62,12 +62,7 @@ class Menu:
 
             elif choice == '2':
                 reservation_number = input("예약번호를 입력하세요: ")
-                patient_info = [reservation_number, name, age, social_number, dept, doc]
-                if reservation_number == patient_info[0]:
-                    self.display_patient_info()
-
-                # self.service.find_patient_by_reservation(reservation_number)  # 클래스가 아닌 위에 선언한 인스턴스 self.service로 불러와야 함
-
+                self.service.find_patient_by_reservation(reservation_number)  # 클래스가 아닌 위에 선언한 인스턴스 self.service로 불러와야 함
             elif choice == '3':
                 reservation_number  = input("예약번호를 입력하세요: ")
                 dept_fee = self.service.payment_process(reservation_number)
@@ -90,15 +85,10 @@ class Menu:
                 print("프로그램을 종료합니다.")
                 return
 
-    def display_patient_info(self, patient):
-       print("==== 예약 정보=====:")
-       print(f'예약번호: {patient.reservation_number}')
-       print(f'이름: {patient.name}')
-       print(f'나이: {patient.age}')
-       print(f'전화번호: {patient.phone_number}')
-       print(f'주민번호: {patient.social_number}')
-       print(f'진료과목: {patient.dept}')
-       print(f'담당의: {patient.doc}')
+
+
+
+
 
 
 
