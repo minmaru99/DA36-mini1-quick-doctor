@@ -13,6 +13,7 @@ class Menu:
     2. 진료내역 조회
     3. 수납
     4. 종료
+    *
     =============================
     입력: """
         while True:
@@ -84,6 +85,10 @@ class Menu:
             elif choice == '4':
                 print("프로그램을 종료합니다.")
                 return
+
+            elif choice == '*':
+                pass
+
 
 
 
