@@ -1,4 +1,5 @@
 from datetime import datetime
+from matplotlib import pyplot as plt
 
 
 class AdminService:
@@ -52,6 +53,17 @@ class AdminService:
         max_age=max(ages)
         min_age=min(ages)
 
+        age_group_keys = sorted(age_group.keys())  # 연령대 (10대, 20대 등)
+        age_group_values = [age_group[key] for key in age_group_keys]  # 각 연령대의 환자 수
+
+        # 막대그래프 그리기
+        plt.bar(age_group_keys, age_group_values, width=5,color='pink')  # width=8로 막대의 너비 설정
+        plt.xlabel('age group')
+        plt.ylabel('count')
+        plt.title('Age Distribution')
+        plt.xticks(age_group_keys)  # x축에 연령대를 표시
+        plt.show()
+
         return {
             'avg_age': f'{avg_age:.1f}',
             'max_age': max_age,
@@ -69,6 +81,11 @@ class AdminService:
 
         male_ratio = (male_count/total) * 100
         female_ratio = (female_count/total) * 100
+
+        # 원형 차트 그리기
+        plt.pie([male_count,female_count],labels=['male','female'], autopct='%1.1f%%', colors=['lightgreen','violet'])
+        plt.title('Patient Sex Ratio')
+        plt.show()
 
         return {
           'male_ratio': f'{male_ratio:.2f}%',
