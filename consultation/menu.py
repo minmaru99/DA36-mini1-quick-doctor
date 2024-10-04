@@ -13,7 +13,6 @@ class Menu:
     2. 진료내역 조회
     3. 수납
     4. 종료
-    5. 관리자
     =============================
     입력: """
         while True:
@@ -22,7 +21,6 @@ class Menu:
             if choice == '1':
                 # 환자 정보 입력
                 name = input("이름을 입력하세요: ")
-                age = input("나이를 입력하세요: ")
 
 
                 while True:
@@ -57,14 +55,19 @@ class Menu:
 
                 # 예약번호 생성 및 환자 등록
                 reservation_number = self.service.create_reservation_num()
-                patient_info=[reservation_number, name, age,social_number,dept, doc]
+                patient_info=[reservation_number, name, phone_number, social_number,dept, doc]
                 self.service.add_new_patient(patient_info)
                 print(f'예약이 완료되었습니다! {name}님의 💡예약번호: {reservation_number}💡')
 
 
             elif choice == '2':
                 reservation_number = input("예약번호를 입력하세요: ")
-                self.service.find_patient_by_reservation(reservation_number)  # 클래스가 아닌 위에 선언한 인스턴스 self.service로 불러와야 함
+                patient_info = [reservation_number, name, age, social_number, dept, doc]
+                if reservation_number == patient_info[0]:
+                    self.display_patient_info()
+
+                # self.service.find_patient_by_reservation(reservation_number)  # 클래스가 아닌 위에 선언한 인스턴스 self.service로 불러와야 함
+
             elif choice == '3':
                 reservation_number  = input("예약번호를 입력하세요: ")
                 dept_fee = self.service.payment_process(reservation_number)
@@ -86,6 +89,16 @@ class Menu:
             elif choice == '4':
                 print("프로그램을 종료합니다.")
                 return
+
+    def display_patient_info(self, patient):
+       print("==== 예약 정보=====:")
+       print(f'예약번호: {patient.reservation_number}')
+       print(f'이름: {patient.name}')
+       print(f'나이: {patient.age}')
+       print(f'전화번호: {patient.phone_number}')
+       print(f'주민번호: {patient.social_number}')
+       print(f'진료과목: {patient.dept}')
+       print(f'담당의: {patient.doc}')
 
 
 
