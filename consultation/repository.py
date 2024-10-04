@@ -1,4 +1,5 @@
 from consultation.entity import Patient
+import pickle
 
 class PatiRepo:
     dept_fees = {
@@ -12,19 +13,23 @@ class PatiRepo:
         try:
             with open('patients.txt', 'r', encoding='utf-8') as f:
                 content = f.readlines()
-                self.patients.append(content)
+                for line in content:
+                    line=line.strip().split(",")
+                    self.patients.append(line)
         except FileNotFoundError:
             self.patients = []
 
     def add_new_patient(self, patient):
         self.patients.append(patient)
         with open('patients.txt', 'a', encoding='utf-8') as f:
-            f.write(str(patient) + '\n')
+            f.write(",".join(patient)+"\n")
 
-    def get_patient_by_reservation(self, reservation_num):
+    def get_patient_by_reservation(self, reservation_number):
+        print(self.patients)
         for patient in self.patients:
-            if patient.reservation_num == reservation_num:
+            if patient[0] == reservation_number:
                 return patient
+
         return None
 
     def get_dept_fee(self, dept):
@@ -32,3 +37,5 @@ class PatiRepo:
 
 
 
+if __name__ == '__main__':
+    repo = PatiRepo()

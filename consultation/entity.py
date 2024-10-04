@@ -1,8 +1,7 @@
 class Patient:
-    def __init__(self, reservation_number, name, age, phone_number, social_number, dept, doc):
+    def __init__(self, reservation_number, name,  phone_number, social_number, dept, doc):
         self.reservation_number = reservation_number
         self.name = name
-        self.age = age
         self.phone_number = phone_number
         self.social_number = social_number
         self.dept = dept
