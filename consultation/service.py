@@ -30,11 +30,8 @@ class PatiService:
         unique_id = str(len(self.repository.patients)+1).zfill(2)
         return f'{today}0{unique_id}'
 
-    def add_new_patient(self, name, age, phone_number, social_number, dept, doc):
-        reservation_number = self.create_reservation_num()
-        new_patient = Patient(reservation_number, name, age, phone_number, social_number, dept, doc)
-        self.repository.add_patient(new_patient)
-        print(f'예약이 완료되었습니다!   💡예약번호: {reservation_number}💡')
+    def add_new_patient(self, patient_info):
+        self.repository.add_new_patient(patient_info)
 
     def display_patient_info(self, patient):
        print("==== 예약 정보=====:")
@@ -51,8 +48,4 @@ class PatiService:
         if patient:
             dept_fee = self.repository.get_dept_fee(patient.dept)
             return dept_fee
-
-
-
-
 

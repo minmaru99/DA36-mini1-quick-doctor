@@ -1,6 +1,6 @@
 from consultation.service import *
 from consultation.repository import *
-
+from consultation.admin import *
 
 class Menu:
     def __init__(self):
@@ -13,6 +13,7 @@ class Menu:
     2. 진료내역 조회
     3. 수납
     4. 종료
+    5. 관리자
     =============================
     입력: """
         while True:
@@ -22,6 +23,8 @@ class Menu:
                 # 환자 정보 입력
                 name = input("이름을 입력하세요: ")
                 age = input("나이를 입력하세요: ")
+
+
                 while True:
                     phone_number = input("전화번호를 입력하세요(11자리): ")
                     if len(phone_number) == 11 and phone_number.isdigit():
@@ -54,12 +57,14 @@ class Menu:
 
                 # 예약번호 생성 및 환자 등록
                 reservation_number = self.service.create_reservation_num()
-                self.service.add_new_patient(reservation_number, name, age,social_number,dept, doc)
+                patient_info=[reservation_number, name, age,social_number,dept, doc]
+                self.service.add_new_patient(patient_info)
+                print(f'예약이 완료되었습니다! {name}님의 💡예약번호: {reservation_number}💡')
+
 
             elif choice == '2':
                 reservation_number = input("예약번호를 입력하세요: ")
                 self.service.find_patient_by_reservation(reservation_number)  # 클래스가 아닌 위에 선언한 인스턴스 self.service로 불러와야 함
-
             elif choice == '3':
                 reservation_number  = input("예약번호를 입력하세요: ")
                 dept_fee = self.service.payment_process(reservation_number)
@@ -82,5 +87,5 @@ class Menu:
                 print("프로그램을 종료합니다.")
                 return
 
-            else:
-                print('❌잘못 입력하셨습니다. 다시 입력해주세요!❌')
+
+
