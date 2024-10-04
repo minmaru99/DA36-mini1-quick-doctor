@@ -1,68 +1,49 @@
-from patient.pati_menu import PatiMenu
-from patient.pati_repo import PatiRepo
+from admin_service import AdminService
+from consultation.menu import Menu
 
-#관리자 페이지에서 확인할 수 있는 것들: 사용자 정보/ 병원,의사 정보/ 누적 사용자 수(plot)/ 날짜별 사용자 수/
-# 사용자 연령, 성별 통계
-# 진료과목별 통계
-
-class Admin:
+class Admin_menu:
     def __init__(self):
-        self.repo=PatiRepo()
+        self.admin = AdminService()
+        self.return_menu=Menu()
 
-    def count_patients(self):
-        print(f'전체 이용 환자: {len(self.repo.patients_info)}명')
-        print(f'날짜별 이용 환자:')
+    def main_menu(self):
+        menu_str = """
+    =========⚙️️️ 관리자 모드 ⚙️️️=========
+    1. 누적 환자 수 조회
+    2. 키오스크 사용자 연령대 통계 조회
+    3. 환자 성별 통계 조회
+    4. 모든 환자 정보 조회
+    5. 처음으로 돌아가기
+    =============================
+    입력: """
+        while True:
+            choice = input(menu_str)
 
-    def calculate_age(self,patient):  # 환자 나이 계산
-        birth_num=patient.birth_num
-        if int(birth_num[6]) in (1,2):
-            birth_year=int(birth_num[:2])+1900
-        elif int(birth_num[6]) in (3,4):
-            birth_year=int(birth_num[:2])+2000
+            if choice == '1':
+                print("======== 누적 환자 수 ========")
+                self.admin.count_dept_patients()
 
-        user_age=abs(2024-birth_year)+1
-        return user_age
+            elif choice == '2':
+                print('====== 키오스크 사용자 연령대 ======')
+                age_stats = self.admin.age_statistics()  # 연령 통계 조회
+                print(f'평균 나이: {age_stats["avg_age"]}세')
+                print(f'가장 많이 이용한 연령대: {age_stats["max_age_group"]}대')
+                print(f'가장 적게 이용한 연령대: {age_stats["min_age_group"]}대')
 
-    def classify_sex(self,patient):
-        birth_num=patient.birth_num
-        if int(birth_num[6]) in (1,3):
-            user_sex='남성'
-        elif int(birth_num[6]) in (2,4):
-            user_sex='여성'
-        return user_sex
+            elif choice == '3':
+                print('======= 환자 성별 통계 =======')
+                sex_stats = self.admin.sex_ratio()  # 성별 비율 조회
+                print(f'♂️ 남성 환자 비율: {sex_stats["male_ratio"]}')
+                print(f'♀️ 여성 환자 비율: {sex_stats["female_ratio"]}')
 
-    def age_statics(self):
-        ages=[]
-        for patient in self.repo.patients_info:
-            ages.append(self.calculate_age(patient))
-        if ages:
-            avg_ages=sum(ages)/len(ages)
-            max_ages=max(ages)
-            min_ages=min(ages)
-        else:
-            return '등록된 환자 정보가 없습니다.'
+            elif choice == '4':
+                print("======== 모든 환자 정보 조회 🔍 ========")
+                self.admin.display_all_patients()
 
-        return {
-        'avg_age':avg_ages,
-        'max_age':max_ages,
-        'min_age':min_ages
-        }
+            elif choice == '5':
+                print("처음 화면으로 이동합니다.🧸️️")
+                self.return_menu.main_menu()
+                return
 
-    def sex_ratio(self):
-        sexes=[]
-        male,female=(0,0)
-        for patient in self.repo.patients_info:
-            sexes.append(self.classify_sex(patient))
-
-        if sexes:
-            for sex in sexes:
-                if sex=='남성':
-                    male+=1
-                else:
-                    female+=1
-            male_ratio=f'{(male/len(sexes))*100}%'
-            female_ratio=f'{(female/len(sexes))*100}%'
-            return male_ratio,female_ratio
-        else:
-            return '등록된 환자 정보가 없습니다.'
-
+            else:
+                print('❌잘못 입력하셨습니다. 다시 입력해주세요!❌')
