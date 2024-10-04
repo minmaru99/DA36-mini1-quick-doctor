@@ -13,7 +13,6 @@ class Menu:
     2. 진료내역 조회
     3. 수납
     4. 종료
-    5. 관리자
     =============================
     입력: """
         while True:
@@ -22,7 +21,6 @@ class Menu:
             if choice == '1':
                 # 환자 정보 입력
                 name = input("이름을 입력하세요: ")
-                age = input("나이를 입력하세요: ")
 
 
                 while True:
@@ -57,7 +55,7 @@ class Menu:
 
                 # 예약번호 생성 및 환자 등록
                 reservation_number = self.service.create_reservation_num()
-                patient_info=[reservation_number, name, age,social_number,dept, doc]
+                patient_info=[reservation_number, name, phone_number, social_number,dept, doc]
                 self.service.add_new_patient(patient_info)
                 print(f'예약이 완료되었습니다! {name}님의 💡예약번호: {reservation_number}💡')
 
@@ -86,6 +84,8 @@ class Menu:
             elif choice == '4':
                 print("프로그램을 종료합니다.")
                 return
+
+
 
 
 
