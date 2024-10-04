@@ -1,3 +1,5 @@
+from datetime import date
+
 from consultation.service import *
 from consultation.repository import *
 
@@ -52,9 +54,10 @@ class Menu:
                 doc_choice = int(input(f'담당의사를 선택해주세요: \n{docs_str}\n선택:')) -1
                 doc = docs[dept][doc_choice]
 
-                # 예약번호 생성 및 환자 등록
-                reservation_number = self.service.create_reservation_num()
-                self.service.add_new_patient(reservation_number, name, age,social_number,dept, doc)
+                # 환자 등록 요청(service)
+                reservation_number = self.service.add_new_patient(patient_info)
+                patient_info = [name, age, phone_number, social_number,dept, doc]
+                print(f'예약이 완료되었습니다!   💡예약번호: {reservation_number}💡')
 
             elif choice == '2':
                 reservation_number = input("예약번호를 입력하세요: ")
@@ -76,7 +79,16 @@ class Menu:
                     else:
                         print('❌ 잘못 입력하셨습니다. 다시 선택해주세요. ❌')
 
-                print('~~~~~~~~~~~~~~~~~\n🧾 결제가 완료되었습니다. 감사합니다!')
+                print('~~~~~~~~~~~~~~~~~~~~~~~~~~\n👌 결제가 완료되었습니다. 감사합니다!')
+
+                reciet = input('🧾 진단서를 출력하시겠습니까? [y/n]: ')
+                if reciet == "y":
+                    patient = self.service.find_patient_by_reservation(reservation_number)
+                    print_reciet = self.service.patient_reciet(patient)
+                    print(f'🧾 진단서 출력 🧾\n{print_reciet}')
+                else:
+                    print('🏥NCT247 병원을 이용해 주셔서 감사합니다. 빠른 쾌유를 빕니다.🏥')
+
 
             elif choice == '4':
                 print("프로그램을 종료합니다.")

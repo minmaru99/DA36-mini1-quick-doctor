@@ -26,15 +26,12 @@ class PatiService:
         #     reservation_number = f'{today}0{PatiService.reservation_date[today]}'
         # return reservation_number
 
-        today = datetime.today().strftime('%Y%m%d')
+        today = datetime.today().strftime('%y%m%d')
         unique_id = str(len(self.repository.patients)+1).zfill(2)
         return f'{today}0{unique_id}'
 
-    def add_new_patient(self, name, age, phone_number, social_number, dept, doc):
-        reservation_number = self.create_reservation_num()
-        new_patient = Patient(reservation_number, name, age, phone_number, social_number, dept, doc)
-        self.repository.add_patient(new_patient)
-        print(f'예약이 완료되었습니다!   💡예약번호: {reservation_number}💡')
+    def add_new_patient(self, patient):
+        self.repository.add_new_patient(patient)
 
     def display_patient_info(self, patient):
        print("==== 예약 정보=====:")
@@ -46,11 +43,22 @@ class PatiService:
        print(f'진료과목: {patient.dept}')
        print(f'담당의: {patient.doc}')
 
+
     def payment_process(self,reservation_number):
         patient = self.repository.get_patient_by_reservation(reservation_number)
         if patient:
             dept_fee = self.repository.get_dept_fee(patient.dept)
             return dept_fee
+
+    def patient_reciet(self,patient):
+        today = datetime.today().strftime('%y%m%d')
+        dept_fee = self.repository.get_dept_fee(patient.dept)
+        print(f' 진료일자: {today}')
+        print(f'이름: {patient.name}')
+        print(f'나이: {patient.age}')
+        print(f'진료과목: {patient.dept}')
+        print(f'담당의: {patient.doc}')
+        print(f'결제금액: {dept_fee}')
 
 
 
