@@ -1,5 +1,5 @@
 from datetime import datetime
-from fontTools.misc.xmlWriter import escape
+# from fontTools.misc.xmlWriter import escape
 
 
 class Admin:
