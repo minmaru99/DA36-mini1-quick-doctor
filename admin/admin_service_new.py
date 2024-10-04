@@ -1,8 +1,9 @@
 from datetime import datetime
-# from fontTools.misc.xmlWriter import escape
+from fontTools.misc.xmlWriter import escape
+from consultation import *
 
 
-class Admin:
+class Adminservice:
     def __init__(self, file_path):
         self.file_path = file_path
         self.patients = self.load_patients_from_file()
@@ -23,7 +24,7 @@ class Admin:
 
 # 파일 불러오기 예시
 if __name__ == "__main__":
-    admin = Admin('consultation/patients.txt')  # txt 파일 경로 지정
+    admin = Adminservice('consultation/patients.txt')  # txt 파일 경로 지정
 
     # 불러온 환자 리스트 출력
     print("불러온 환자 리스트:")

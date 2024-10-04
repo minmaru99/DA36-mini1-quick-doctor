@@ -1,13 +1,12 @@
-from admin_service import AdminService
-from consultation.menu import Menu
+from matplotlib import pyplot as plt
+from admin.admin_service import *
 
-class Admin_menu:
-    def __init__(self):
-        self.admin = AdminService()
-        self.return_menu=Menu()
+def admin_menu():
+    admin = AdminService('C:/Workspace/DA36-mini1-quick-doctor/consultation/patients.txt')
+    patients = admin.load_patients_from_file()
 
-    def main_menu(self):
-        menu_str = """
+    while True:
+        print("""
     =========⚙️️️ 관리자 모드 ⚙️️️=========
     1. 누적 환자 수 조회
     2. 키오스크 사용자 연령대 통계 조회
@@ -15,35 +14,51 @@ class Admin_menu:
     4. 모든 환자 정보 조회
     5. 처음으로 돌아가기
     =============================
-    입력: """
-        while True:
-            choice = input(menu_str)
+    입력: """)
 
-            if choice == '1':
-                print("======== 누적 환자 수 ========")
-                self.admin.count_dept_patients()
+        choice = input().strip()
 
-            elif choice == '2':
-                print('====== 키오스크 사용자 연령대 ======')
-                age_stats = self.admin.age_statistics()  # 연령 통계 조회
-                print(f'평균 나이: {age_stats["avg_age"]}세')
-                print(f'가장 많이 이용한 연령대: {age_stats["max_age_group"]}대')
-                print(f'가장 적게 이용한 연령대: {age_stats["min_age_group"]}대')
+        if choice == '1':
+            depts = [patient[4] for patient in patients]
+            dept_counts, total_patients = admin.count_dept_patients(depts)
+            print("\n====== 부서별 환자 수 ======")
+            for dept, count in dept_counts:
+                print(f'- {dept}: {count}명')
+            print(f'😷전체 환자 수😷: {total_patients}명')
 
-            elif choice == '3':
-                print('======= 환자 성별 통계 =======')
-                sex_stats = self.admin.sex_ratio()  # 성별 비율 조회
-                print(f'♂️ 남성 환자 비율: {sex_stats["male_ratio"]}')
-                print(f'♀️ 여성 환자 비율: {sex_stats["female_ratio"]}')
+        elif choice == '2':
+            ages = [admin.calculate_age(patient[3]) for patient in patients]
+            age_stats = admin.age_statistics(ages)
+            print("\n====== 키오스크 사용자 연령대 통계 ======")
+            print(f"- 평균 나이: {age_stats['avg_age']}세")
+            print(f"- 👵🏻 최고령 이용자: {age_stats['max_age']}")
+            print(f"- 👶🏻 최연소 이용자: {age_stats['min_age']}")
+            print(f"- 가장 많이 이용한 연령대: {age_stats['max_age_group']}대")
+            print(f"- 가장 적게 이용한 연령대: {age_stats['min_age_group']}대")
 
-            elif choice == '4':
-                print("======== 모든 환자 정보 조회 🔍 ========")
-                self.admin.display_all_patients()
+        elif choice == '3':
+            sexes = [admin.classify_sex(patient[3]) for patient in patients]
+            sex_ratio = admin.sex_ratio(sexes)
+            print("\n====== 키오스크 사용자 성별 통계 ======")
+            print(f'♂️ 남성 환자 비율: {sex_ratio["male_ratio"]}')
+            print(f'♀️ 여성 환자 비율: {sex_ratio["female_ratio"]}')
 
-            elif choice == '5':
-                print("처음 화면으로 이동합니다.🧸️️")
-                self.return_menu.main_menu()
-                return
-
+        elif choice == '4':
+            all_patients_info = admin.display_patients_info(patients)
+            if isinstance(all_patients_info, str):
+                print(all_patients_info)
             else:
-                print('❌잘못 입력하셨습니다. 다시 입력해주세요!❌')
+                print('============ 모든 환자 정보 ============')
+                for index, patient_info in enumerate(patients, start=1):
+                    print(f'{index}. {patient_info}')
+
+        elif choice == '5':
+            print("처음으로 돌아갑니다.")
+            break
+
+        else:
+            print("잘못된 입력입니다. 다시 선택해 주세요.")
+
+
+if __name__ == "__main__":
+    admin_menu()
