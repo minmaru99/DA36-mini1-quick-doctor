@@ -1,8 +1,6 @@
-from datetime import date
-
 from consultation.service import *
 from consultation.repository import *
-
+from consultation.admin import *
 
 class Menu:
     def __init__(self):
@@ -15,6 +13,7 @@ class Menu:
     2. 진료내역 조회
     3. 수납
     4. 종료
+    5. 관리자
     =============================
     입력: """
         while True:
@@ -24,6 +23,8 @@ class Menu:
                 # 환자 정보 입력
                 name = input("이름을 입력하세요: ")
                 age = input("나이를 입력하세요: ")
+
+
                 while True:
                     phone_number = input("전화번호를 입력하세요(11자리): ")
                     if len(phone_number) == 11 and phone_number.isdigit():
@@ -54,15 +55,16 @@ class Menu:
                 doc_choice = int(input(f'담당의사를 선택해주세요: \n{docs_str}\n선택:')) -1
                 doc = docs[dept][doc_choice]
 
-                # 환자 등록 요청(service)
-                reservation_number = self.service.add_new_patient(patient_info)
-                patient_info = [name, age, phone_number, social_number,dept, doc]
-                print(f'예약이 완료되었습니다!   💡예약번호: {reservation_number}💡')
+                # 예약번호 생성 및 환자 등록
+                reservation_number = self.service.create_reservation_num()
+                patient_info=[reservation_number, name, age,social_number,dept, doc]
+                self.service.add_new_patient(patient_info)
+                print(f'예약이 완료되었습니다! {name}님의 💡예약번호: {reservation_number}💡')
+
 
             elif choice == '2':
                 reservation_number = input("예약번호를 입력하세요: ")
                 self.service.find_patient_by_reservation(reservation_number)  # 클래스가 아닌 위에 선언한 인스턴스 self.service로 불러와야 함
-
             elif choice == '3':
                 reservation_number  = input("예약번호를 입력하세요: ")
                 dept_fee = self.service.payment_process(reservation_number)
@@ -79,20 +81,11 @@ class Menu:
                     else:
                         print('❌ 잘못 입력하셨습니다. 다시 선택해주세요. ❌')
 
-                print('~~~~~~~~~~~~~~~~~~~~~~~~~~\n👌 결제가 완료되었습니다. 감사합니다!')
-
-                reciet = input('🧾 진단서를 출력하시겠습니까? [y/n]: ')
-                if reciet == "y":
-                    patient = self.service.find_patient_by_reservation(reservation_number)
-                    print_reciet = self.service.patient_reciet(patient)
-                    print(f'🧾 진단서 출력 🧾\n{print_reciet}')
-                else:
-                    print('🏥NCT247 병원을 이용해 주셔서 감사합니다. 빠른 쾌유를 빕니다.🏥')
-
+                print('~~~~~~~~~~~~~~~~~\n🧾 결제가 완료되었습니다. 감사합니다!')
 
             elif choice == '4':
                 print("프로그램을 종료합니다.")
                 return
 
-            else:
-                print('❌잘못 입력하셨습니다. 다시 입력해주세요!❌')
+
+
