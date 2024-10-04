@@ -1,5 +1,4 @@
 from consultation.entity import Patient
-import pickle
 
 class PatiRepo:
     dept_fees = {
@@ -22,9 +21,9 @@ class PatiRepo:
         with open('patients.txt', 'a', encoding='utf-8') as f:
             f.write(str(patient) + '\n')
 
-    def get_patient_by_reservation(self, reservation_number):
+    def get_patient_by_reservation(self, reservation_num):
         for patient in self.patients:
-            if patient.reservation_number == reservation_number:
+            if patient.reservation_num == reservation_num:
                 return patient
         return None
 
