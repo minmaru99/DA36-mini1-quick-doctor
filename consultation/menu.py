@@ -1,6 +1,5 @@
 from consultation.service import *
 from consultation.repository import *
-from consultation.admin import *
 
 class Menu:
     def __init__(self):
@@ -84,6 +83,7 @@ class Menu:
             elif choice == '4':
                 print("프로그램을 종료합니다.")
                 return
+
 
 
 

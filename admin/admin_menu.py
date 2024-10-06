@@ -1,10 +1,8 @@
-from admin_service import AdminService
-from consultation.menu import Menu
+from admin_service_new import Admin
 
 class Admin_menu:
     def __init__(self):
-        self.admin = AdminService()
-        self.return_menu=Menu()
+        self.admin_service_new = Admin()
 
     def main_menu(self):
         menu_str = """
@@ -40,10 +38,10 @@ class Admin_menu:
                 print("======== 모든 환자 정보 조회 🔍 ========")
                 self.admin.display_all_patients()
 
-            elif choice == '5':
-                print("처음 화면으로 이동합니다.🧸️️")
-                self.return_menu.main_menu()
-                return
+            # elif choice == '5':
+            #     print("처음 화면으로 이동합니다.🧸️️")
+            #     self.return_menu.main_menu()
+            #     return
 
             else:
                 print('❌잘못 입력하셨습니다. 다시 입력해주세요!❌')
