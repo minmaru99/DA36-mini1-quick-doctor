@@ -43,17 +43,22 @@
   - 라이브러리/모듈: 기본 콘솔작업을 위한 Python 라이브러리, 시각화를 위한  matplotlib
   - 협업도구: Git-Hub
 
+
 ☑️ 사용자 요구사항
 ![image](https://github.com/user-attachments/assets/37de1264-81ad-4854-bf15-29b2d93847d4)
+
 
 ☑️ 단위업무 정의서
 ![image](https://github.com/user-attachments/assets/ef1c5b8b-8024-4419-94a4-08af834a547b)
 
+
 ☑️ 주요일정
 ![주요일정](https://github.com/user-attachments/assets/d6d4a6af-b27e-4b68-b553-ebfc0f755471)
 
+
 ☑️ 수정/ 변경사항
 ![image](https://github.com/user-attachments/assets/9a01820b-d042-4762-8e73-d6acfb2b0d88)
+
 
 ☑️ 메뉴 구조
 ![메뉴구조도](https://github.com/user-attachments/assets/5dd6ef8f-6bd4-4c4a-9f6e-3cec8e671a8f)
@@ -61,3 +66,8 @@
 
 
 ## 4. 프로젝트 소감
+
+🐯 김혜영
+
+🐻 김희애
+🐼 전민하
