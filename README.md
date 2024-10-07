@@ -5,7 +5,11 @@
 
 ## 1. 프로젝트 개요
 ☑️ 프로젝트 명: Quik-Doctor
+
+☑️ 팀명(팀원): NCT247(김희애, 김혜영, 문사무엘, 전민하)
+
 ☑️ 프로젝트 개요: 병원 진료 접수를 위한 간단한 콘솔 기반의 키오스크 시스템을 개발하고, 환자들이 병원 서비스를 보다 쉽게 사용할 수 있도록하여 병원 시스템의 효율화를 도모하고자 함
+
 ☑️개발 목적
   1) 병원의 단순 업무인 접수 및 수납 절차 자동화를 통해 병원 시스템 효율화 도모
   2) 실시간으로 저장되는 환자 데이터 수집 및 분석(통계 및 시각화)을 통한 맞춤형 병원 관리 지원
@@ -40,8 +44,20 @@
   - 협업도구: Git-Hub
 
 ☑️ 사용자 요구사항
+![image](https://github.com/user-attachments/assets/37de1264-81ad-4854-bf15-29b2d93847d4)
+
+☑️ 단위업무 정의서
+![image](https://github.com/user-attachments/assets/ef1c5b8b-8024-4419-94a4-08af834a547b)
+
+☑️ 주요일정
+![주요일정](https://github.com/user-attachments/assets/d6d4a6af-b27e-4b68-b553-ebfc0f755471)
+
+☑️ 수정/ 변경사항
+![image](https://github.com/user-attachments/assets/9a01820b-d042-4762-8e73-d6acfb2b0d88)
 
 ☑️ 메뉴 구조
 ![메뉴구조도](https://github.com/user-attachments/assets/5dd6ef8f-6bd4-4c4a-9f6e-3cec8e671a8f)
+
+
 
 ## 4. 프로젝트 소감
