@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 from consultation.admin_service import *
 
 def admin_menu():
-    admin = AdminService('C:\Workspace\DA36-mini1-quick-doctor\consultation\patients.txt')
+    admin = AdminService('C:\Workspaces\DA36-mini1-quick-doctor\consultation\patients.txt')
     patients = admin.load_patients_from_file()
 
     while True:

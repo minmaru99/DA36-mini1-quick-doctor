@@ -1,4 +1,9 @@
 class Patient:
+    dept_fees = {
+        "내과": 10000,
+        "이비인후과": 20000,
+        "소아과": 30000
+    }
     def __init__(self, reservation_number, name,  phone_number, social_number, dept, doc):
         self.reservation_number = reservation_number
         self.name = name
