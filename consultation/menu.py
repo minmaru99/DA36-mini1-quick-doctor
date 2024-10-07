@@ -1,7 +1,6 @@
 from consultation.service import *
 from consultation.admin_menu import admin_menu
 
-
 class Menu:
     def __init__(self):
         self.service = PatiService()
@@ -109,6 +108,7 @@ class Menu:
             elif choice == '4':
                 print("\n키오스크를 종료합니다.\n이용해주셔서 감사합니다. (●'◡'●)")
                 return
+
 
 
 
