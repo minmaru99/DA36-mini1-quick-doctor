@@ -13,8 +13,6 @@ class Menu:
     2. 접수 내역 조회
     3. 수납
     4. 종료
-
-    ⚙️ 관리자 모드 ⚙️
     =============================
     입력: """
         while True:
@@ -67,9 +65,14 @@ class Menu:
 
             elif choice == '3':
                 reservation_number = input("예약번호를 입력하세요: ")
+                print()
+                self.service.find_patient_by_reservation(reservation_number)
                 dept_fee = self.service.payment_process(reservation_number)
-                if dept_fee:
-                    print(f'\n💰 결제 금액은 \'{dept_fee}원\' 입니다 💰')
+                print('='*30)
+                check=input('진료 내역이 맞습니까? (y / n): ')
+                if check=='y':
+                    if dept_fee:
+                        print(f'\n💰 결제 금액은 \'{dept_fee}원\' 입니다 💰')
 
                     while True:
                         print('< 결제 수단을 선택하세요 >')
