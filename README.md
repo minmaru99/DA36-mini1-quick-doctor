@@ -45,38 +45,67 @@
 
 
 ☑️ 사용자 요구사항
+
 ![image](https://github.com/user-attachments/assets/37de1264-81ad-4854-bf15-29b2d93847d4)
 
 
 
 ☑️ 단위업무 정의서
+
 ![image](https://github.com/user-attachments/assets/ef1c5b8b-8024-4419-94a4-08af834a547b)
 
 
 
 ☑️ 주요일정
+
 ![주요일정](https://github.com/user-attachments/assets/d6d4a6af-b27e-4b68-b553-ebfc0f755471)
 
 
 
 ☑️ 수정/ 변경사항
+
 ![image](https://github.com/user-attachments/assets/9a01820b-d042-4762-8e73-d6acfb2b0d88)
 
 
 
 ☑️ 메뉴 구조
+
 ![메뉴구조도](https://github.com/user-attachments/assets/5dd6ef8f-6bd4-4c4a-9f6e-3cec8e671a8f)
 
 
-## 4. 프로젝트 시연 영상
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KzzrCPcFuxc?si=sO5hWHXKD0_6oYXr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+## 4. 프로젝트 시연 영상(⬇️유튜브 확인하기⬇️)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/r2Bs4C5yWr8/0.jpg)](https://www.youtube.com/watch?v=r2Bs4C5yWr8)
 
 
 ## 5. 프로젝트 소감
 
-🐯 김혜영
+### 🦅 김혜영
+  - 객체지향의 개념 재정리 및 개인 프로젝트를 직접 실습해보고 이를 통해 함수, 반복문 등 프로그램 설계에 기초가 되는 코드 공부 필요
+  - 처방전 발급 등 추가적으로 구현하고자 했던 기능 추후 구현 희망
+  - 깃헙을 통한 충돌 상황을 다수 경험하며 깃헙 관리능력 향상
+  - 다수가 함께하는 프로젝트 진행 시, 노션 프로젝트 관리를 통해 체계적인 순서에 맞는 프로젝트 운영 필요
+  - 단순 코드 진행이 아닌 프로젝트의 궁극적인 목표를 상기하고 프로젝트의 시사점을 드러내는 연습 필요
+    
 
-🐻 김희애
+### 🐻 김희애
+  - 어떤 부분을 알고 모르는지에 대해 명확히 알 수 있었다.
+  - 프로젝트 과정 중 배운 것이 많다.
+  - 2주동안 수업을 들으면서 복습하고 실습문제 푼 것보다 하나의 프로젝트를 맡아서 오류도 계속나고 해결하고 미친듯이 수정도 해보면서 실질적으로 내 몸에 습득된 것이 느껴진다.
+  - 기초개념과 복습의 중요성을 정말 깊게 깨달았다.
+  - 의사소통, 팀워크의 중요성
+  - 정말 운이 좋게도 첫번째 프로젝트 팀원분들이 너무나도 좋아요...
+  - 욕심으로는 다음번에도 이 팀으로 가고 싶어요...
+  - 서로 모르는 부분을 채워주고 각자 으쌰으쌰하는게 정말 중요하다는 것을 깨달았다
 
-🐼 전민하
+
+### 🐼 전민하
+ 🫧... ㄴㅏ으 회고 ...🫧
+ - 강의 시간에 눈으로 따라갔던 내용들을 직접 응용하고 만들어내는 과정에서 오랜 시간이 소요되었다.
+ - 간단하게 생각한 코드조차 잘 짜지 못하는 나 자신에게 실망스러웠다. ಥ_ಥ
+ - 막막했던 순간도 있었지만 팀원들과 협력하여 궁극적으로 원했던 그림이 완성되어서 뿌듯하였다.
+
+✊🏻 ... 각오 ...✊🏻
+ - 다음 프로젝트 전까지 부족한 부분을 더 학습해서 팀에 도움이 될 수 있으면 좋겠다.
+ - 깃허브 충돌을 두려워하지 말고, 검색하거나 도움 받기 전 충분히 고민하고 스스로 해결할 수 있도록 하기!
+ - 이쯤 하면 됐다가 아니라, 좀 더 욕심을 내면서 시간을 들이ㅈㅏ!
+ - 실용성 있는, 수요가 있는 프로그램을 만들어보자 !
